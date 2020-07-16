@@ -1,0 +1,294 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+	overflow-y: scroll; 
+}
+
+body {
+    background-image: url(../img/wallpaperblack4.jpg);
+    font: normal 300 19px "monospace", sans-serif;
+}
+
+.navbar {
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #ecf0f1;
+    border-radius: 4px;
+}
+
+.navbar-ul {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+li.nav {
+    float: left;
+    width: 20%;
+}
+
+li.nav:hover a::before, li.nav:hover .logout::before{
+    right: 0;
+    left: 0;
+}
+
+.navbar a, .navbar .logout {
+    color: #848484;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    padding: 20px 0;
+    display: block;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.navbar .logout {
+    border: none;  
+}
+
+.navbar a:hover, .navbar .logout:hover {
+    color: #e74c3c;
+}
+
+.navbar a::before, .navbar .logout::before {
+    content: "";
+    transition: all 0.4s ease-in-out;
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    bottom: 0;
+    height: 2px;
+    background-color: #e74c3c;
+}
+
+.navbar a:hover::before, .navbar .logout:hover::before {
+    right: 0;
+    left: 0;
+}
+
+.navbar-ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration:none;
+    color: #1ab188;
+    transition:.5s ease;
+}
+
+a:hover {
+    color: #1a8f70e8;
+}
+
+.form {
+    background:whitesmoke;
+    padding: 40px;
+    max-width:600px;
+    margin:40px auto;
+    border-radius: 4px;
+}
+
+.tab-group {
+    list-style:none;
+    padding:0;
+    margin:0 0 50px 0;
+}
+
+.tab-group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tab-group li a {
+    display:block;
+    text-decoration:none;
+    padding:5px;
+    background: rgb(114, 113, 113);
+    color: #a0b3b0;
+    font-size:20px;
+    float:left;
+    width:50%;
+    text-align:center;
+    cursor:pointer;
+    transition:.5s ease;
+}
+
+.tab-group li a:hover {
+    background:rgb(54, 52, 52);
+    color:whitesmoke;
+}
+
+.tab-content > div:last-child {
+    display:none;
+}
+
+h1 {
+    text-align:center;
+    color:#229274;
+    font-weight: 300;
+    margin:0 0 40px;
+}
+
+label {
+    position:absolute;
+    transform:translateY(38px);
+    left:10px;
+    color: #3c3f3e;
+    transition:all 0.25s ease;
+    pointer-events: none;
+    font-size:18px;
+}
+
+label .req {
+    margin:2px;
+    color: #1ab189;
+}
+
+input, textarea {
+    font-size:22px;
+    display:block;
+    width:100%;
+    height:100%;
+    padding:5px 30px;
+    background:none;
+    background-image:none;
+    border:1px solid #a0b3b0;
+    color:#1ab188;
+    border-radius:0;
+    transition:border-color .25s ease, box-shadow .25s ease;
+}
+
+input:focus, textarea:focus {
+    outline:0;
+    border-color: #1ab188;
+}
+
+textarea {
+    border:2px solid #a0b3b0;
+    resize: vertical;
+    }
+
+.field-wrap {
+    position:relative;
+    margin-bottom:40px;
+    color: red;
+}
+
+.button {
+    border:0;
+    outline:none;
+    border-radius:0;
+    padding:15px 0;
+    font-size:2rem;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    background:#1ab188;
+    color:whitesmoke;
+    transition:all.5s ease;
+    /* -webkit-appearance: none; */
+}
+
+.button:hover, .button:focus {
+    background: black;
+}
+
+.button-block {
+    display:block;
+    width:100%;
+}
+
+.forgot {
+  margin-top:-20px;
+  text-align:right;
+}
+
+
+/* New task */
+
+.new_task {
+	width: 550px;
+	padding: 30px;
+	background: #FFFFFF;
+	margin: 30px auto;
+}
+
+.new-task h2{
+	background: #4D4D4D;
+    text-transform: uppercase;
+    text-align: center;
+	color: #797979;
+	font-size: 18px;
+	font-weight: 100;
+	padding: 20px;
+	margin: -30px -30px 30px -30px;
+}
+
+.new_task input[type="text"] {
+    box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+}
+
+.checkdate {
+    display: block;
+    position: relative;
+    margin: 40px auto;
+    height: auto;
+    width: 500px;
+    padding: 20px;
+}
+  
+h2 {
+    color: #AAAAAA;
+}
+  
+.checkdate ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+.check_task  li{
+    color: #AAAAAA;
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid #333;
+}
+  
+.check_task  li input[type=radio]{
+    height: 25px;
+    position: absolute;
+}
+  
+.check_task  li label{
+    display: block;
+    position: relative;
+    font: 18px Arial, Helvetica, sans-serif;
+    padding: 25px 25px 25px 80px;
+    margin: 10px auto;
+    height: 30px;
+    z-index: 9;
+    cursor: pointer;
+}
+  
+footer {
+    text-align:center;
+    color:#ffffff;
+    margin:0 0 40px;
+}

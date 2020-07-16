@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EPYTODO - Manage your time - {{page_title}}</title>
+    
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
+    <link rel="icon" href="{{url_for('static', filename='img/favicon.ico')}}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="navbar-ul">
+            <li class="nav">
+                <a class ="active" href="{{url_for('route_index')}}">Home</a>
+            </li>
+            {%if session.username %}
+            <li class="nav">
+                <a href="{{url_for('route_user')}}">Profil</a>
+            </li>
+            <li class="nav">
+                <a href="{{url_for('route_user_tasks')}}">Tasks</a>
+            </li>
+            <li class="nav">
+                <form action="{{url_for('route_signout')}}" method="POST"><button class="logout" type="submit" value="Envoyer">Logout</button></form>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    {% if not session.username %}
+    <div class="form">
+      
+        <ul class="tab-group">
+          <li class="tab active"><a href="#signup">Register</a></li>
+          <li class="tab"><a href="#login">Log In</a></li>
+        </ul>
+        
+        <div class="tab-content">
+          <div id="signup">   
+            <h1>Register now</h1>
+            
+            <form action="{{url_for('route_register')}}" method="POST">
+            
+            <div class="field-wrap">
+              <label>
+                Username<span class="req">*</span>
+              </label>
+              <input type="text" name="username" required autocomplete="off" />
+            </div>
+            
+            <div class="field-wrap">
+              <label>
+                Password<span class="req">*</span>
+              </label>
+              <input type="password" name="password" required autocomplete="off"/>
+            </div>
+            
+            <button type="submit" class="button button-block"/>Register</button>
+            
+            </form>
+    
+          </div>
+          
+          <div id="login">   
+            <h1>Welcome Back!</h1>
+            
+            <form action="{{url_for('route_signin')}}" method="POST">
+            
+              <div class="field-wrap">
+              <label>
+                Username<span class="req">*</span>
+              </label>
+              <input type="text" name="username" required autocomplete="off"/>
+            </div>
+            
+            <div class="field-wrap">
+              <label>
+                Password<span class="req">*</span>
+              </label>
+              <input type="password" name="password" required autocomplete="off"/>
+            </div>
+            
+            <button class="button button-block"/>Log In</button>
+            
+            </form>
+    
+          </div>
+          
+        </div><!-- tab-content -->
+        
+    </div> <!-- /form -->
+    {% endif %}
+    {% block content %}{% endblock%}
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            Copyright &copy; 2020 E. Richard - H. Suzanne
+        </div>
+    </footer>
+
+    <script src="{{url_for('static', filename='js/template.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% set page_title = "Profil" %}
+
+{% block content %}
+<header>
+    <h1>{{page_title}} - Bonjour {{session.username}}</h1>
+</header>
+<section class="form_task">
+    <a href="{{url_for('route_user_tasks')}}">See all your tasks</a>
+    <section class="new_task">
+                <h2>Add a new task</h2>
+                <form action="{{url_for('route_create_task')}}" method="POST">
+                        <input type="text" name="title" placeholder="Title" required/>
+                        <input type="text" name="start" placeholder="Start" required/>
+                        <input type="text" name="end" placeholder="End" required/>
+                    <div class="checkdate">
+                        <ul class="check_task">
+                            <li>
+                                <input type="radio" id="status" name="status" value="not started" />
+                                <label for="wait">Not started</label>
+
+                                <div class="check"></div>
+                            </li>
+                            <li>
+                                <input type="radio" id="status" name="status" value="in progress" />
+                                <label for="progress">In progress</label>
+
+                                <div class="check"><div class="inside"></div></div>
+                            </li>
+                            <li>
+                                <input type="radio" id="status" name="status" value="done" />
+                                <label for="done">Done</label>
+
+                                <div class="check"><div class="inside"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+                        <button type="submit" value="Envoyer">Add</button>
+                    </div>
+                </form>
+
+        </section>
+</section>
+{% endblock %}
